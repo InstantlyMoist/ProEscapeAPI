@@ -1,0 +1,54 @@
+const { response } = require("express");
+var bodyParser = require("body-parser");
+const express = require("express");
+const api = express.Router();
+const Room = require("../../models/room");
+const fs = require("fs");
+
+api.use(bodyParser.urlencoded({ extended: true }));
+api.use(bodyParser.json());
+
+api.get("/", (req, res) => {
+  let rooms = Room.prototype.getAllRooms;
+  let roomID = req.query["roomId"];
+  // TODO: Error when roomId is not specified
+  let foundRoom = getById(rooms, roomID);
+  res.send(foundRoom);
+});
+
+api.post("/", (req, res) => {
+  let data = req.body; // Should be the room object with title
+
+  let rooms = Room.prototype.getAllRooms;
+  let keys = Object.keys(rooms);
+  let newIndex = parseInt((keys[keys.length - 1] || 0)) + 1;
+
+  data["runningState"] = false;
+  data["progress"] = 0;
+  data["puzzles"] = [];
+
+  rooms[newIndex] = data;
+
+  Room.prototype.updateRooms(rooms);
+  res.sendStatus(200);
+});
+
+api.delete("/", (req, res) => {
+  let data = req.body;
+  // Data should contain room ID
+  let roomID = data.id;
+
+  Room.prototype.remove(roomID, (done) => {
+    res.sendStatus(done ? 404 : 200);
+  });
+});
+
+function getById(json, id) {
+  let result = null;
+  Object.keys(json).forEach((room) => {
+    result = json[id];
+  });
+  return result;
+}
+
+module.exports = api;
