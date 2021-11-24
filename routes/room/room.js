@@ -1,9 +1,9 @@
 const { response } = require("express");
-var bodyParser = require("body-parser");
 const express = require("express");
 const api = express.Router();
 const Room = require("../../models/room");
 const fs = require("fs");
+var bodyParser = require("body-parser");
 
 api.use(bodyParser.urlencoded({ extended: true }));
 api.use(bodyParser.json());
@@ -11,9 +11,13 @@ api.use(bodyParser.json());
 api.get("/", (req, res) => {
   let rooms = Room.prototype.getAllRooms;
   let roomID = req.query["roomId"];
-  // TODO: Error when roomId is not specified
   let foundRoom = getById(rooms, roomID);
-  res.send(foundRoom);
+
+  if (foundRoom !=null){
+    res.send(foundRoom);
+    console.log(foundRoom);
+  }else{ res.sendStatus(404)}//When the room doesn't exist
+
 });
 
 api.post("/", (req, res) => {

@@ -25,6 +25,12 @@ class Room {
         fs.writeFileSync("./data/data.json", JSON.stringify(rooms, null, "  "));
     }
 
+    findRoom(RoomId,rooms){
+        let keys = Object.keys(rooms);
+        let room = keys.find(element => element == RoomId)
+        return room
+    }
+
     remove(roomID, done) {
         let rooms = this.getAllRooms;
         if (rooms[roomID] == null) {
