@@ -13,11 +13,12 @@ api.get("/", (req, res) => {
   let roomID = req.query["roomId"];
   let foundRoom = getById(rooms, roomID);
 
-  if (foundRoom !=null){
-    res.send(foundRoom);
-    console.log(foundRoom);
-  }else{ res.sendStatus(404)}//When the room doesn't exist
-
+  if (!foundRoom) {
+    res.sendStatus(404);
+    return;
+  }
+  
+  res.send(foundRoom);
 });
 
 api.post("/", (req, res) => {
@@ -42,12 +43,12 @@ api.delete("/", (req, res) => {
   // Data should contain room ID
   let roomID = data.id;
 
-  Room.prototype.remove(roomID, (done) => {
+  Room.prototype.remove(roomID, (done) => { // Method handles ID so no need to check if it's there
     res.sendStatus(done ? 404 : 200);
   });
 });
 
-function getById(json, id) {
+function getById(json, id) { // TODO: Move this to model
   let result = null;
   Object.keys(json).forEach((room) => {
     result = json[id];
