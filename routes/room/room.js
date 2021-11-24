@@ -1,12 +1,6 @@
-const { response } = require("express");
-const express = require("express");
-const api = express.Router();
-const Room = require("../../models/room");
-const fs = require("fs");
-var bodyParser = require("body-parser");
+const api = require("express").Router();
 
-api.use(bodyParser.urlencoded({ extended: true }));
-api.use(bodyParser.json());
+const Room = require("../../models/room");
 
 api.get("/", (req, res) => {
   let rooms = Room.prototype.getAllRooms;

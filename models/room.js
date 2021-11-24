@@ -2,6 +2,19 @@ let fs = require("fs");
 
 class Room {
 
+    /*
+    TODO in room:
+
+    Add IP address field (for the camera), this should be updated in the POST and UPDATE request. 
+    We could also consider adding a list of IPs for multiple cameras, which would probably be a lot easier.
+    A simple check of the body could determine if it's either one camera or multiple
+    
+    if one -> convert to list with only one index
+    else -> use list
+
+    Dashboard and app should be able to load them dynamically
+    */
+
     // Room consist of:
     //
     // ID
@@ -18,23 +31,22 @@ class Room {
     }
 
     get getAllRooms() {
-        return JSON.parse(fs.readFileSync("./data/data.json"));
+        return JSON.parse(fs.readFileSync("./data/data.json")); // TODO: Add error handling (?)
     }
 
-    updateRooms(rooms){
+    updateRooms(rooms){ // TODO: Add error handling (?)
         fs.writeFileSync("./data/data.json", JSON.stringify(rooms, null, "  "));
     }
 
-    findRoom(RoomId,rooms){
+    findRoom(roomId ,rooms){ // TODO: Add error handling (?)
         let keys = Object.keys(rooms);
-        let room = keys.find(element => element == RoomId)
+        let room = keys.find(element => element == roomId)
         return room
     }
 
     remove(roomID, done) {
         let rooms = this.getAllRooms;
         if (rooms[roomID] == null) {
-            console.log("No room found");
             return done(Error('Room not found'));
         }
         delete rooms[roomID];
