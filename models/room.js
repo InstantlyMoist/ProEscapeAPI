@@ -53,6 +53,14 @@ class Room {
         this.updateRooms(rooms);
         return done(null);
     }
+
+    getById(json, id) {
+        let result = null;
+        Object.keys(json).forEach((room) => {
+          result = json[id];
+        });
+        return result;
+      }
 }
 
 module.exports = Room;

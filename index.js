@@ -11,6 +11,7 @@ const port = 3000; // TODO: Switch to HTTP/HTTPS port to run protected requests 
 api.use("/api/rooms", require("./routes/rooms/rooms"));
 api.use("/api/room", require("./routes/room/room"));
 api.use("/api/room/puzzle", require("./routes/room/puzzle"));
+api.use("/api/room/roomStatus", require("./routes/room/room_status"));
 
 api.listen(port, () =>{
     console.log(`Server running on http://localhost:${port}`)

@@ -1,5 +1,5 @@
 const api = require("express").Router();
-
+const uuid = require('uuid');
 const Room = require("../../models/room");
 
 //requires de id van de kamer
@@ -11,14 +11,14 @@ api.post("/", (req, res) => {
 
   const roomId = data.RoomId;
   const rooms = Room.prototype.getAllRooms;
-  let room = Room.prototype.findRoom(RoomId, rooms);
+  let room = Room.prototype.findRoom(roomId, rooms);
   console.log(room);
 
   if (!room) { // Room does not exist
     res.sendStatus(404);
     return;
   }
-  puzzleId = Math.max.apply(Math, rooms[roomId].puzzles) + 1;
+  puzzleId = uuid.v4()
   rooms[roomId].puzzles.push(puzzleId);
   console.log(rooms[roomId].puzzles);
   Room.prototype.updateRooms(rooms);
@@ -38,8 +38,8 @@ api.delete("/", (req, res) => { // TODO Andreas: let erop dat alle requests via 
     res.sendStatus(404);
     return;
   }
-  puzzleIndex = rooms[room].puzzles.findIndex((element) => element == puzzle); // Kan je niet findIndex(puzzle) doen? aangezien je die al hebt
-  delete rooms[room].puzzles[puzzleIndex];
+  puzzleIndex = rooms[room].puzzles.findIndex(puzzle); // Kan je niet findIndex(puzzle) doen? aangezien je die al hebt
+  rooms[room].puzzles.splice(puzzleIndex);
   Room.prototype.updateRooms(rooms);
   res.sendStatus(200);
 });

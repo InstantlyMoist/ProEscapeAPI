@@ -3,7 +3,6 @@ class Puzzle {
     /*
     TODO for puzzles:
     - Create puzzles.json
-    - Change puzzle ID to random UUID to prevent dupclicates (https://stackoverflow.com/questions/23327010/how-to-generate-unique-id-with-node-js)
 
     Central storage of the puzzles reduces complexity of the overall application and opens up for easier API access
 
@@ -18,7 +17,6 @@ class Puzzle {
     */
 
     // Puzzle consist of:
-    //
     // ID (int) -> Change to UUID
     // State (boolean) -> Could load dynamically
 

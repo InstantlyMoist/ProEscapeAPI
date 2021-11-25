@@ -5,7 +5,7 @@ const Room = require("../../models/room");
 api.get("/", (req, res) => {
   let rooms = Room.prototype.getAllRooms;
   let roomID = req.query["roomId"];
-  let foundRoom = getById(rooms, roomID);
+  let foundRoom = Room.prototype.getById(rooms, roomID);
 
   if (!foundRoom) {
     res.sendStatus(404);
@@ -42,12 +42,6 @@ api.delete("/", (req, res) => {
   });
 });
 
-function getById(json, id) { // TODO: Move this to model
-  let result = null;
-  Object.keys(json).forEach((room) => {
-    result = json[id];
-  });
-  return result;
-}
+
 
 module.exports = api;
