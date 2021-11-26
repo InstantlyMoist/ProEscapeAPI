@@ -1,15 +1,26 @@
 const api = require("express").Router();
 const uuid = require('uuid');
 const Room = require("../../models/room");
+const Puzzle = require("../../models/puzzle")
 
-//requires de id van de kamer
+//requires de id of the room, the ip adress of the puzzle and the title of the puzzle
 api.post("/", (req, res) => {
   // /api/room/puzzle
 
   const data = req.body;
   console.log(data);
 
-  const roomId = data.RoomId;
+  puzzles = Puzzle.prototype.getAllpuzzles
+  const value = {
+    "status": true,
+    "title": data.title
+  }
+  puzzles[data.puzzleId] = value
+
+  Puzzle.prototype.updatePuzzle(puzzles)
+
+
+  const roomId = data.roomId;
   const rooms = Room.prototype.getAllRooms;
   let room = Room.prototype.findRoom(roomId, rooms);
   console.log(room);
@@ -25,21 +36,21 @@ api.post("/", (req, res) => {
   res.sendStatus(200);
 });
 
-api.delete("/", (req, res) => { // TODO Andreas: let erop dat alle requests via de main slug gaan (dus /api/room/puzzle), je hoeft hiervoor geen aparte /delete aan te maken :)
-  const puzzleId = req.body.PuzzleId;
-  const roomId = req.body.RoomId;
-  console.log(puzzleId, roomId);
+api.delete("/", (req, res) => { 
+  const data = req.body;
+  const puzzleId = data.puzzleId;
+  const roomId = data.roomId;
 
   const rooms = Room.prototype.getAllRooms;
   const room = Room.prototype.findRoom(roomId, rooms);
-  puzzle = rooms[room].puzzles.find((element) => element == puzzleId);
+  const puzzle = rooms[room].puzzles.find((element) => element == puzzleId);
 
   if (!room || !puzzle) { // Either room or puzzle doesn't exist
     res.sendStatus(404);
     return;
   }
-  puzzleIndex = rooms[room].puzzles.findIndex(puzzle); // Kan je niet findIndex(puzzle) doen? aangezien je die al hebt
-  rooms[room].puzzles.splice(puzzleIndex);
+  const puzzleIndex = rooms[room].puzzles.indexOf(puzzle);
+  rooms[room].puzzles.splice(puzzleIndex,1);
   Room.prototype.updateRooms(rooms);
   res.sendStatus(200);
 });

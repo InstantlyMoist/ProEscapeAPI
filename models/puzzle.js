@@ -1,3 +1,4 @@
+const fs = require("fs");
 class Puzzle {
 
     /*
@@ -16,6 +17,12 @@ class Puzzle {
     - Create POST for resetting device, though we can probably use the initialization function -> Should discuss
     */
 
+    /*  26/11
+        Added puzzles.json that saves puzzle info plus hub ip. Made a POST request that gives the hub ip and anwser back,
+        and one that changes the saved puzzle status. 
+    */
+
+
     // Puzzle consist of:
     // ID (int) -> Change to UUID
     // State (boolean) -> Could load dynamically
@@ -31,10 +38,15 @@ class Puzzle {
         this.state = state;
     }
 
-    addpuzzle(puzzle){ // TOOD: Add error handling (?)
-        fs.writeFileSync("./data/data.json", JSON.stringify(puzzle, null, ""));
+    updatePuzzle(puzzle){ // TODO: Add error handling (?)
+        fs.writeFileSync("./data/puzzles.json", JSON.stringify(puzzle, null, "  "));
+    }
+    get getAllpuzzles() {
+        return JSON.parse(fs.readFileSync("./data/puzzles.json"));
     }
     
+
+
     getId() {
         return this.id;
     }

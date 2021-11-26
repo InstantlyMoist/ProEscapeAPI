@@ -25,10 +25,12 @@ api.post("/", (req, res) => {
   data["runningState"] = false;
   data["progress"] = 0;
   data["puzzles"] = [];
+  data["camera"] = [];
 
   rooms[newIndex] = data;
 
   Room.prototype.updateRooms(rooms);
+
   res.sendStatus(200);
 });
 

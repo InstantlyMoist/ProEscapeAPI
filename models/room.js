@@ -15,6 +15,11 @@ class Room {
     Dashboard and app should be able to load them dynamically
     */
 
+    /*  26/11
+        Added camera ip array to data.json that gets added in the POST in room.js. You can add multiple camera ips to it.
+        You can also delete camera ips.
+    */
+
     // Room consist of:
     //
     // ID
