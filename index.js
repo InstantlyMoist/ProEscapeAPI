@@ -15,7 +15,7 @@ api.use("/api/room/roomStatus", require("./routes/room/roomStatus"));
 api.use("/api/room/camera", require("./routes/room/camera"));
 api.use("/api/room/camera", require("./routes/room/camera"));
 
-api.use("/api/puzzleAwnser", require("./routes/puzzle/puzzleAwnser"));
+api.use("/api/puzzleAwnser", require("./routes/puzzle/puzzleAnswer"));
 api.use("/api/puzzleStatus", require("./routes/puzzle/puzzleStatus"));
 
 api.listen(port, () =>{

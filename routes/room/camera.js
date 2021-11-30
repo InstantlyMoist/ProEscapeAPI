@@ -1,24 +1,16 @@
 const api = require("express").Router();
-const Puzzle = require("../../models/puzzle");
 const Room = require("../../models/room");
 
 api.post("/", (req, res) => {
     const data = req.body;  //requires the roomId and the camera(s) ip
     let roomId = data.roomId;
-    const rooms = Room.prototype.getAllRooms;
     roomId = Room.prototype.findRoom(roomId,rooms);
-
+    camera = data.camera
     if (roomId == null){
         res.sendStatus(404);
         return;
     }
-    
-    const cameraKeys = Object.keys(data.camera);
-    cameraKeys.forEach(ip=>{
-        rooms[roomId].camera.push(data.camera[ip]);
-    });
-
-    Room.prototype.updateRooms(rooms);
+    Room.prototype.addCamera(roomId, camera)
     res.sendStatus(200);
 
 });
@@ -36,9 +28,7 @@ if(!roomId || !cameraIp){ // when room or camera doesn't exist
     res.sendStatus(404);
     return;
 }
-const cameraIndex = rooms[roomId].camera.indexOf(cameraIp);
-rooms[roomId].camera.splice(cameraIndex,1);
-Room.prototype.updateRooms(rooms);
+Room.prototype.removeCamera(cameraIp,roomId,rooms);
 res.sendStatus(200);
 
 });
