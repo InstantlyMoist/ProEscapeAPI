@@ -1,8 +1,7 @@
 {
   "2": {
-    "title": "Spooky room",
+    "title": "poep2",
     "runningState": true,
-    "progress": 10,
     "puzzles": [
       2,
       3,
@@ -11,9 +10,10 @@
       7,
       "d48df07e-5b31-4a75-b8b0-fdf318a76d8a",
       "155791cc-9996-4728-8b83-eb762d6b0042",
-      "87e1d554-9f69-4f70-be93-4282d349b071",
-      "9174aab5-2083-4476-b4ae-e4c64baa5b03"
-    ]
+      "87e1d554-9f69-4f70-be93-4282d349b071"
+    ],
+    "camera": [],
+    "progress": 110
   },
   "3": {
     "title": "Kamer 1",
