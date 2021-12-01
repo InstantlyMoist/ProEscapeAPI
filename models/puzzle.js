@@ -30,12 +30,10 @@ class Puzzle {
      * @param {Json file with inf about puzzle} puzzles 
      * @param {The ip of the puzzle} puzzleIp 
      */
-    findPuzzel(puzzles,puzzleIp){
-        puzzleIp= puzzles.find((element) => element == puzzleIp);
+    findPuzzle(puzzles, puzzleIp){
+        puzzleIp = puzzles.find((element) => element == puzzleIp);
         return puzzleIp;
     }
-    
-
 
     getId() {
         return this.id;

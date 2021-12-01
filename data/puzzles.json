@@ -1,25 +1,6 @@
 {
-  "hub": {
-    "ip": "192.169.1.10"
-  },
-  "192.169.1.176": {
-    "status": true,
-    "title": "different puzzle"
-  },
-  "192.169.1.172": {
-    "status": true,
-    "title": "mens erger je niet"
-  },
-  "192.169.1.175": {
-    "status": true,
-    "title": "simons says"
-  },
-  "192.169.1.171": {
-    "status": true,
-    "title": "different puzzle"
-  },
-  "192.169.1.1": {
-    "status": true,
-    "title": "wii golf"
+  "192.168.227.231": {
+    "status": 100,
+    "title": "Pincode Kluis"
   }
 }

@@ -1,69 +1,11 @@
 {
   "2": {
-    "title": "poep2",
+    "title": "poep 1234",
     "runningState": true,
     "puzzles": [
-      2,
-      3,
-      5,
-      6,
-      7,
-      "d48df07e-5b31-4a75-b8b0-fdf318a76d8a",
-      "155791cc-9996-4728-8b83-eb762d6b0042",
-      "87e1d554-9f69-4f70-be93-4282d349b071"
+      "192.168.227.231"
     ],
-    "camera": [],
+    "camera": ["192.168.227.179:8080"],
     "progress": 110
-  },
-  "3": {
-    "title": "Kamer 1",
-    "runningState": false,
-    "progress": 0,
-    "puzzles": []
-  },
-  "5": {
-    "title": "Kamer 1",
-    "runningState": false,
-    "progress": 0,
-    "puzzles": []
-  },
-  "6": {
-    "title": "kamer6",
-    "runningState": false,
-    "progress": 0,
-    "puzzles": []
-  },
-  "7": {
-    "title": "kamer7",
-    "camera": [
-      " camera1",
-      "camera2"
-    ],
-    "runningState": false,
-    "progress": 0,
-    "puzzles": []
-  },
-  "8": {
-    "title": "kamer8",
-    "camera": [
-      "192.1",
-      "192.4"
-    ],
-    "runningState": false,
-    "progress": 0,
-    "puzzles": []
-  },
-  "9": {
-    "title": "kamer 9",
-    "camera": [
-      "192.99.12"
-    ],
-    "runningState": false,
-    "progress": 0,
-    "puzzles": [
-      "581bb8c3-8ee4-494c-8e8d-c121b2b400bf",
-      "e5801b84-e704-4c00-8ed3-d274a2e59c71",
-      "c1018111-916a-46a5-8f07-e66f2aa1a511"
-    ]
   }
 }

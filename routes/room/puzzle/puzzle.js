@@ -1,7 +1,7 @@
 const api = require("express").Router();
 const uuid = require("uuid");
-const Room = require("../../models/room");
-const Puzzle = require("../../models/puzzle");
+const Room = require("../../../models/room");
+const Puzzle = require("../../../models/puzzle");
 
 //requires de id of the room, the ip adress of the puzzle and the title of the puzzle
 api.post("/", (req, res) => {
