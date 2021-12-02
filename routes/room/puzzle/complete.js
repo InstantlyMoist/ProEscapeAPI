@@ -9,8 +9,8 @@ api.get("/", (req, res) => {
 
   // TODO: Call to puzzle if needed.
 
-  // let foundPuzzle = Puzzle.prototype.findPuzzle(puzzles,puzzleIp) TODO: FIX
-  if (!puzzleIP) {
+  let foundPuzzle = Puzzle.prototype.findPuzzle(puzzleIP);
+  if (!foundPuzzle) {
     res.sendStatus(404);
     return;
   }

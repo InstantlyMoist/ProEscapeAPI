@@ -2,18 +2,18 @@ const api = require("express").Router();
 const Puzzle = require("../../models/puzzle");
 
 //The route I think it takes dashboard -> api -> hub -> puzzle ?
+
+//perhaps change this to a GET request 
 api.post("/", (req, res) => {
   const data = req.body;
-  const answer = data.answer;
-  const puzzleId = data.puzzleId; // not sure how the dashboard will know this
 
   puzzles = Puzzle.prototype.getAllpuzzles;
   const hubIp = puzzles["hub"].ip;
 
   const packet = {
-    answer: answer,
+    answer: data.answer,
     hub: hubIp,
-    puzzle: puzzleId,
+    puzzle: data.puzzleID,
   };
 
   res.send(packet);

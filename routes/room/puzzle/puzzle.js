@@ -41,14 +41,12 @@ api.delete("/", (req, res) => {
   const data = req.body;
   let puzzleID = req.query["puzzleID"];
 
-  //const puzzleID = data.puzzleID;
   const roomID = data.roomID;
+  puzzles = Puzzle.prototype.getAllpuzzles;
 
   const rooms = Room.prototype.getAllRooms;
   const foundRoom = Room.prototype.findRoom(roomID, rooms);
-  const foundPuzzle = rooms[foundRoom].puzzles.find(
-    (element) => element == puzzleID
-  );
+  const foundPuzzle = Puzzle.prototype.findPuzzle(puzzleID);
 
   if (!foundRoom || !foundPuzzle) {
     // Either room or puzzle doesn't exist
@@ -56,9 +54,12 @@ api.delete("/", (req, res) => {
     return;
   }
   // TODO: Remove puzzle from puzzles.json (!)
+  delete puzzles[puzzleID];
   const puzzleIndex = rooms[foundRoom].puzzles.indexOf(foundPuzzle);
   rooms[foundRoom].puzzles.splice(puzzleIndex, 1);
   Room.prototype.updateRooms(rooms);
+  Puzzle.prototype.updatePuzzle(puzzles)
+
   res.sendStatus(200);
 });
 module.exports = api;

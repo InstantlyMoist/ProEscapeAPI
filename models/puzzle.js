@@ -14,7 +14,7 @@ class Puzzle {
     
     /**
      * Updates old json with new json file
-     * @param {Json file with the puzzles} puzzles 
+     * @param {*} puzzles Json file with the puzzles
      */
     updatePuzzle(puzzles){ // TODO: Add error handling (?)
         fs.writeFileSync("./data/puzzles.json", JSON.stringify(puzzles, null, "  "));
@@ -27,12 +27,14 @@ class Puzzle {
     }
     /**
      * Finds puzzle in room, if it doesnt exist return empty
-     * @param {Json file with inf about puzzle} puzzles 
-     * @param {The ip of the puzzle} puzzleIp 
+     * @param {*} puzzleIP The ip of the puzzle
      */
-    findPuzzle(puzzles, puzzleIp){
-        puzzleIp = puzzles.find((element) => element == puzzleIp);
-        return puzzleIp;
+    findPuzzle(puzzleIP){
+        const puzzles = this.getAllpuzzles;
+        if(!puzzles[puzzleIP]){
+            return null
+        }
+        return puzzleIP;
     }
 
     getId() {

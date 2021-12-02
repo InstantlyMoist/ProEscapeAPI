@@ -3,7 +3,7 @@ const Room = require("../../../models/room");
 
 api.post("/", (req, res) => {
   const data = req.body; //requires the roomId and the camera(s) ip
-  let roomID = req.query["roomId"];
+  let roomID = req.query["roomID"];
 
   foundRoom = Room.prototype.findRoom(roomID, rooms);
   if (!foundRoom) {
@@ -11,7 +11,7 @@ api.post("/", (req, res) => {
     return;
   }
 
-  Room.prototype.addCamera(roomId, data.camera);
+  Room.prototype.addCamera(roomID, data.camera);
   res.sendStatus(200);
 });
 

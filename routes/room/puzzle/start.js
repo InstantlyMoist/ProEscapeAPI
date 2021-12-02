@@ -6,10 +6,9 @@ api.get("/", (req, res) => {
   // PuzzleID
   const puzzleID = req.query["puzzleID"];
   const puzzles = Puzzle.prototype.getAllpuzzles;
-  //const puzzles = Puzzle.prototype.getAllpuzzles;
-  //const foundPuzzle = Puzzle.prototype.findPuzzle(puzzles, puzzleID);
+  const foundPuzzle = Puzzle.prototype.findPuzzle(puzzleID);
   
-  if (!puzzleID) {
+  if (!foundPuzzle) {
     res.sendStatus(404);
     return;
   }

@@ -35,7 +35,7 @@ class Room {
   }
   /**
    * Replace the old json file with the new one
-   * @param {New json file} rooms
+   * @param {*} rooms New json file
    */
   updateRooms(rooms) {
     // TODO: Add error handling (?)
@@ -43,20 +43,20 @@ class Room {
   }
   /**
    * Check if the rooms exist
-   * @param {The id for the room} roomId
-   * @param {the json file with all the rooms} rooms
+   * @param {*} roomID The id for the room
+   * @param {*} rooms the json file with all the rooms
    * @returns gives back the room id if it doesn't exit it return empty
    */
-  findRoom(roomId, rooms) {
+  findRoom(roomID, rooms) {
     // TODO: Add error handling (?)
     let keys = Object.keys(rooms);
-    let room = keys.find((element) => element == roomId);
+    let room = keys.find((element) => element == roomID);
     return room;
   }
   /**
    * Remove room and all info from the json file
-   * @param {The id for the room} roomID
-   * @param {use to check if roomId exist, if its not done is empty} done
+   * @param {*} roomID The id for the room
+   * @param {*} done use to check if roomId exist, if its not done is empty
    * @returns
    */
   remove(roomID, done) {
@@ -70,21 +70,21 @@ class Room {
   }
   /**
    * Check if roomid exist
-   * @param {The json with the rooms} json
-   * @param {The room ID} id
+   * @param {*} json The json with the rooms
+   * @param {*} ID The room ID
    * @returns
    */
-  getById(json, id) {
+  getById(json, ID) {
     let result = null;
     Object.keys(json).forEach((room) => {
-      result = json[id];
+      result = json[ID];
     });
     return result;
   }
   /**
    * Adds camera ip to the room
-   * @param {The room ID where the camera is located} roomId
-   * @param {The ip of the camera} camera
+   * @param {*} roomID The room ID where the camera is located
+   * @param {*} camera The ip of the camera
    */
   addCamera(roomID, camera) {
     const rooms = this.getAllRooms;
@@ -96,9 +96,9 @@ class Room {
   }
   /**
    * Removes camera ip from room
-   * @param {The ip of the camera to be removed} cameraIp
-   * @param {The room id where camera is located} roomId
-   * @param {The json file with all the rooms} rooms
+   * @param {*} cameraIP The ip of the camera to be removed
+   * @param {*} roomID The room id where camera is located
+   * @param {*} rooms The json file with all the rooms
    */
   removeCamera(cameraIP, roomID, rooms) {
     const cameraIndex = rooms[roomID].camera.indexOf(cameraIP);
