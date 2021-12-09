@@ -105,6 +105,21 @@ class Room {
     rooms[roomID].camera.splice(cameraIndex, 1);
     this.updateRooms(rooms);
   }
+  /**
+   * 
+   * @param {*} roomID The id for the room 
+   * @param {*} order The data given from blockly
+   */
+  insertOrder(roomID, order){
+    let rooms = this.getAllRooms;
+    rooms[roomID]['order'] = {};
+    for (let indexKey in order){
+      let i = 1;
+      rooms[roomID]['order'][indexKey] = order[indexKey];
+      i++
+    }
+    this.updateRooms(rooms);
+  }
 }
 
 module.exports = Room;

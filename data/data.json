@@ -5,7 +5,17 @@
     "puzzles": [
       "192.168.227.231"
     ],
-    "camera": ["192.168.227.179:8080"],
-    "progress": 110
+    "camera": [
+      "192.168.227.179:8080"
+    ],
+    "progress": 110,
+    "order": {
+      "step_1": [
+        "klokpuzzel"
+      ],
+      "step_2": [
+        "simonsays"
+      ]
+    }
   }
 }

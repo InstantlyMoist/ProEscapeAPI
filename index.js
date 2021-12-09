@@ -3,6 +3,10 @@ const api = express();
 
 var bodyParser = require("body-parser");
 
+const cors = require('cors');
+
+
+api.use(cors({origin: '*'}));
 api.use(bodyParser.urlencoded({ extended: true }));
 api.use(bodyParser.json()); // Globally parses the body as JSON
 
@@ -17,6 +21,8 @@ api.use("/api/puzzle/start", require("./routes/room/puzzle/start"));
 
 api.use("/api/puzzleAwnser", require("./routes/puzzle/puzzleAnswer"));
 api.use("/api/puzzle/complete", require("./routes/room/puzzle/complete"));
+api.use("/api/puzzle/blockly", require("./routes/room/puzzle/puzzleBlockly"));
+
 
 api.listen(port, () =>{
     console.log(`Server running on http://localhost:${port}`)
