@@ -36,6 +36,18 @@ class Puzzle {
         }
         return puzzleIP;
     }
+    /**
+     * Insert all given codes from Blockly
+     * 
+     * @param {*} Codes The json given with all given codes
+     */
+    insertAnwser(Codes){
+        const puzzles = this.getAllpuzzles;
+        for(let indexKey in Codes){
+            puzzles[indexKey]['code'] = Codes[indexKey]; 
+        }
+        this.updatePuzzle(puzzles)
+    }
 
     getId() {
         return this.id;

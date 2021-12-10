@@ -106,6 +106,7 @@ class Room {
     this.updateRooms(rooms);
   }
   /**
+   * Insert the order of puzzels gotten from Blockly
    * 
    * @param {*} roomID The id for the room 
    * @param {*} order The data given from blockly

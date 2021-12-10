@@ -26,6 +26,7 @@ api.post("/", (req, res) => {
   data["progress"] = 0;
   data["puzzles"] = [];
   data["camera"] = [];
+  data["order"]={};
 
   rooms[newIndex] = data;
 
