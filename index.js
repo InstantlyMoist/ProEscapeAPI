@@ -26,7 +26,7 @@ api.use("/api/puzzle/complete", require("./routes/room/puzzle/complete"));
 api.use("/api/puzzle/blockly", require("./routes/room/puzzle/puzzleBlockly"));
 
 //TEMP Link to test individual puzzels (old puzzle start.js file)
-api.use("/api/test"),require("./routes/puzzleTest")
+api.use("/api/test",require("./routes/puzzleTest"))
 
 
 api.listen(port, () =>{
