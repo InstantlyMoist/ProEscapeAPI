@@ -1,24 +1,20 @@
 const api = require("express").Router();
 const Puzzle = require("../../../models/puzzle");
 const http = require("http");
+const Room = require("../../../models/room");
+
 
 api.get("/", (req, res) => {
-  // PuzzleID
-  const puzzleID = req.query["puzzleID"];
-  const puzzles = Puzzle.prototype.getAllpuzzles;
-  const foundPuzzle = Puzzle.prototype.findPuzzle(puzzleID);
-  
-  if (!foundPuzzle) {
-    res.sendStatus(404);
-    return;
-  }
-
-  http.get(`http://${puzzleID}/start?answer=4852&ip=192.168.227.150`, (httpRes) => { // TODO: GET IP FROM COMPUTER DYNAMICALLY
-    console.log("De request naar de puzzel is verstuurd");
-  });
-
-  puzzles[puzzleID].status = 0;
-  Puzzle.prototype.updatePuzzle(puzzles);
+  // roomID
+  const roomID = req.query["roomID"];
+  const rooms = Room.prototype.getAllRooms
+  const orderKeys = Object.keys(rooms[roomID]['order'])
+  let step = {}
+  step[orderKeys[0]] = rooms[roomID]['order'][orderKeys[0]]
+  rooms[roomID]['current'] = step
+  Room.prototype.updateRooms(rooms);
+  Room.prototype.activateOrder(puzzles, roomID);
+  Puzzle.prototype.puzzleReset(rooms,roomID)
 
   res.sendStatus(200);
 

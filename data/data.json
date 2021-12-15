@@ -11,11 +11,32 @@
     "progress": 110,
     "order": {
       "step_1": [
-        "klokpuzzel"
+        "192.168.227.231"
+      ]
+    },
+    "current": []
+  },
+  "3": {
+    "title": "Kamer met neppe puzzles",
+    "runningState": true,
+    "puzzles": [
+      "123.123.123",
+      "192.168.227"
+    ],
+    "camera": [
+      "192.168.227.179:8080"
+    ],
+    "progress": 100,
+    "order": {
+      "step_1": [
+        "192.168.227"
       ],
       "step_2": [
-        "simonsays"
+        "123.123.123"
       ]
+    },
+    "current": {
+      "step_2": []
     }
   }
 }

@@ -48,6 +48,19 @@ class Puzzle {
         }
         this.updatePuzzle(puzzles)
     }
+    /**
+     * Sets all puzzle status to 0 from a specific  room
+     * 
+     * @param {*} rooms To get all the puzzle from room
+     * @param {*} roomID To known in which room we are working in
+     */
+    puzzleReset(rooms,roomID){
+        const puzzles = this.getAllpuzzles;
+        for(const puzzle of rooms[roomID]['puzzles']){
+            puzzles[puzzle]["status"] = 0
+        }
+        this.updatePuzzle(puzzles)
+    }
 
     getId() {
         return this.id;

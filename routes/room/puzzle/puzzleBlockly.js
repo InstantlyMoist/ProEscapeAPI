@@ -10,7 +10,7 @@ api.post("/", (req, res) => {
 
     Room.prototype.insertOrder(roomID,data['order']);
     Puzzle.prototype.insertAnwser(data['code'])
+
     res.sendStatus(200);
-    
 });
 module.exports = api;
