@@ -6,7 +6,7 @@ api.post("/", (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
     // We probably wil want to get the roomID from the url but im not sure how to give this so for testing purposes im doing it hardcoded
     // let roomID = req.query["roomID"];  
-    let roomID = data[roomID]
+    const roomID = data['roomID']
 
     Room.prototype.insertOrder(roomID,data['order']);
     Puzzle.prototype.insertAnwser(data['code'])
