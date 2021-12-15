@@ -2,7 +2,7 @@
 
 
 const api = require("express").Router();
-const Puzzle = require("../../../models/puzzle");
+const Puzzle = require("../models/puzzle");
 const http = require("http");
 
 api.get("/", (req, res) => {
