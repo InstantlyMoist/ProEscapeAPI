@@ -2,17 +2,8 @@ let fs = require("fs");
 const http = require("http");
 
 class Room {
-  /*
-    // Room consist of:
-    //
-    // ID
-    // Array of puzzles ID
-    // State of room
-    // Code
-    */
-  constructor(id) {
-    // always initialize all instance properties
-    this.id = id
+  
+  constructor() {
   }
   /**
    * Sends you json file with all rooms info
@@ -140,7 +131,7 @@ class Room {
     if (rooms[roomID]['current'][keyStep].includes(puzzleIP)){
       const puzzleIndex = rooms[roomID]['current'][keyStep].indexOf(puzzleIP);
       rooms[roomID]['current'][keyStep].splice(puzzleIndex,1);
-      this.updateRooms(rooms)
+      this.updateRooms(rooms) // unnecessary check if oke to delete
     }
 
     if (rooms[roomID]['current'][keyStep].length == 0){
@@ -194,7 +185,6 @@ class Room {
       }
       count++
     }
-    console.log(rooms[roomID]['progress'])
     this.updateRooms(rooms);
   }
 }

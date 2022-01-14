@@ -8,6 +8,7 @@ api.get("/", (req, res) => {
   // roomID
   const roomID = req.query["roomID"];
   const rooms = Room.prototype.getAllRooms
+  const puzzles = Puzzle.prototype.getAllpuzzles;
   const orderKeys = Object.keys(rooms[roomID]['order'])
   let step = {}
   step[orderKeys[0]] = rooms[roomID]['order'][orderKeys[0]]

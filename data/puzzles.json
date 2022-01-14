@@ -1,17 +1,16 @@
 {
   "192.168.227.231": {
-    "status": 100,
+    "status": 0,
     "title": "Pincode Kluis",
     "code": "1"
   },
   "192.168.227": {
-    "status": 100,
+    "status": 0,
     "title": "Kluis",
-    "code": "255"
+    "code": "1"
   },
   "123.123.123": {
-    "status": 100,
-    "title": "RFID",
-    "code": ""
+    "status": true,
+    "title": "Pincode Kluis"
   }
 }

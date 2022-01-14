@@ -8,14 +8,14 @@ api.post("/", (req, res) => {
   // /api/room/puzzle
 
   const data = req.body;
-  let roomID = req.query["roomID"];
+  const roomID = data.roomID
 
-  puzzles = Puzzle.prototype.getAllpuzzles;
+  const puzzles = Puzzle.prototype.getAllpuzzles;
   const value = {
     status: true,
-    title: data.title,
+    title: data.info[0]['value'],
   };
-  puzzles[data.puzzleID] = value;
+  puzzles[data.info[1]['value']] = value;
 
   Puzzle.prototype.updatePuzzle(puzzles);
 
@@ -32,17 +32,16 @@ api.post("/", (req, res) => {
     return;
   }
 
-  rooms[roomID].puzzles.push(puzzleID);
+  rooms[roomID].puzzles.push(data.info[1]['value']);
   Room.prototype.updateRooms(rooms);
   res.sendStatus(200);
 });
 
 api.delete("/", (req, res) => {
-  const data = req.body;
-  let puzzleID = req.query["puzzleID"];
 
-  const roomID = data.roomID;
-  puzzles = Puzzle.prototype.getAllpuzzles;
+  const roomID = req.body['roomID'];
+  const puzzleID = req.body['info'][1]['value']
+  const puzzles = Puzzle.prototype.getAllpuzzles;
 
   const rooms = Room.prototype.getAllRooms;
   const foundRoom = Room.prototype.findRoom(roomID, rooms);
