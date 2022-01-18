@@ -36,10 +36,7 @@ api.post("/", (req, res) => {
 });
 
 api.delete("/", (req, res) => {
-  let data = req.body;
-  // Data should contain room ID
-  let roomID = data.id;
-
+  let roomID = req.body['removeRoom'];
   Room.prototype.remove(roomID, (done) => { // Method handles ID so no need to check if it's there
     res.sendStatus(done ? 404 : 200);
   });

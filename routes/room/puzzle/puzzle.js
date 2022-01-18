@@ -52,7 +52,6 @@ api.delete("/", (req, res) => {
     res.sendStatus(404);
     return;
   }
-  // TODO: Remove puzzle from puzzles.json (!)
   delete puzzles[puzzleID];
   const puzzleIndex = rooms[foundRoom].puzzles.indexOf(foundPuzzle);
   rooms[foundRoom].puzzles.splice(puzzleIndex, 1);

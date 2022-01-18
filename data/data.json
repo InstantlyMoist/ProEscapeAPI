@@ -1,19 +1,4 @@
 {
-  "2": {
-    "title": "poep 1234",
-    "runningState": true,
-    "puzzles": [],
-    "camera": [
-      "192.168.227.179:8080"
-    ],
-    "progress": 110,
-    "order": {
-      "step_1": [
-        "192.168.227.231"
-      ]
-    },
-    "current": []
-  },
   "3": {
     "title": "Kamer met neppe puzzles",
     "runningState": true,
@@ -26,10 +11,6 @@
     "progress": 0,
     "order": {
       "step_1": [
-        "192.168.227.231"
-      ],
-      "step_2": [
-        "192.168.227",
         "123.123.123"
       ]
     },
@@ -38,23 +19,5 @@
         "192.168.227.231"
       ]
     }
-  },
-  "4": {
-    "title": "test",
-    "runningState": false,
-    "progress": 0,
-    "puzzles": [
-      "123.123.123"
-    ],
-    "camera": [],
-    "order": {}
-  },
-  "5": {
-    "title": "waarom",
-    "runningState": false,
-    "progress": 0,
-    "puzzles": [],
-    "camera": [],
-    "order": {}
   }
 }
